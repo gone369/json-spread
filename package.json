@@ -4,8 +4,6 @@
   "description": "simple javascript utility to spread nested json or javascript objects",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d build",
-    "dist": "babel src -d dist",
     "test": "mocha"
   },
   "repository": {
@@ -35,9 +33,6 @@
     "lodash": "^4.13.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "babel-core": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
     "chai": "^3.5.0",
     "mocha": "^2.5.3"
   }

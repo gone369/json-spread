@@ -16,7 +16,7 @@ var complexObjOutput = require('./output/complexObj');
 var complexArrOutput = require('./output/complexArr');
 var reallifeOutput = require('./output/reallife');
 
-var jsonSpread = require('../build/index.js');
+var jsonSpread = require('../index.js');
 
 var chai = require('chai');
 var assert = chai.assert;
