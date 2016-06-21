@@ -1,0 +1,56 @@
+[{
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"c": 0
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"c": 1
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"c": 2
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"c": 3
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"d.a": "value_da"
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"d.b": "value_db"
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"d.c": "value_dc"
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"e.b": 0
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"e.b": 1
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"e.c.a.a": "value_ec0.a.0.a"
+}, {
+	"a": "value_a",
+	"b.a": "value_ba",
+	"e.a.a.a": "value_eaaa",
+	"e.c.a.a": "value_ec0.a.1.a"
+}]
