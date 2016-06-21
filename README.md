@@ -219,21 +219,11 @@ var output = jsonSpread(data,options);
 ## Contributing
 
 fork it, then do an ``npm install``. everything should be in there  
-I use babel to compile es6 to vanilla javascript.   
-
-write code in ``/src`` folder then
-```bash
-npm run build
-```
-this compiles to the build folder
-
 I use mocha and chai to test. 
 ```bash
 npm test
 ```
 write tests in ``/test`` folder. tests depends on compiled assets from build folder
-
-don't touch ``/dist`` folder
 
 
 ## Dependencies
