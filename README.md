@@ -3,9 +3,9 @@ Json-Spread
 
 ## Description
 
-A simple javascript library that helps first flatten a json structured object and creates duplicate objects off of each nested array elements.
+A simple javascript library that flattens a json structured object and then creates duplicate objects off of each nested array elements.
 
-Great for converting multi leveled json data to single level json that can be used to create csv,tsv,excel or other row column structured data.
+Great for converting multi leveled json to single level json that can be used to create csv,tsv,excel or other row column structured data.
 
 ## Installation
 ```bash
