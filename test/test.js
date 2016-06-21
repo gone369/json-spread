@@ -5,6 +5,7 @@ var nestedArrObjInput = require('./input/nestedArrObj');
 var nestedObjArrInput = require('./input/nestedObjArr');
 var complexObjInput = require('./input/complexObj');
 var complexArrInput = require('./input/complexArr');
+var reallifeInput = require('./input/reallife');
 
 var multipleArrOutput = require('./output/multipleArr');
 var nestedArrOutput = require('./output/nestedArr');
@@ -13,6 +14,7 @@ var nestedArrObjOutput = require('./output/nestedArrObj');
 var nestedObjArrOutput = require('./output/nestedObjArr');
 var complexObjOutput = require('./output/complexObj');
 var complexArrOutput = require('./output/complexArr');
+var reallifeOutput = require('./output/reallife');
 
 var jsonSpread = require('../build/index.js');
 
@@ -67,12 +69,9 @@ describe('Output', function(){
       assert.strictEqual(JSON.stringify(jsonSpread(complexArrInput)),JSON.stringify(complexArrOutput));
     })
   })
+  describe("Real Life Example", function(){
+    it('input should be equal to output json' , function(){
+      assert.strictEqual(JSON.stringify(jsonSpread(reallifeInput)),JSON.stringify(reallifeOutput));
+    })
+  })
 })
-//describe('Array', function() {
-//describe('#indexOf()', function () {
-//it('should return -1 when the value is not present', function () {
-//assert.equal(-1, [1,2,3].indexOf(5));
-//assert.equal(-1, [1,2,3].indexOf(0));
-//});
-//});
-//});

@@ -1,0 +1,38 @@
+[{
+	"user_id": 1,
+	"email": "1@domain.com",
+	"hobbies.type": "sport",
+	"hobbies.name": "soccer",
+	"hobbies.dates": "May 3rd"
+}, {
+	"user_id": 1,
+	"email": "1@domain.com",
+	"hobbies.type": "sport",
+	"hobbies.name": "soccer",
+	"hobbies.dates": "May 4th"
+}, {
+	"user_id": 1,
+	"email": "1@domain.com",
+	"hobbies.type": "sport",
+	"hobbies.name": "soccer",
+	"hobbies.dates": "May 5th"
+}, {
+	"user_id": 1,
+	"email": "1@domain.com",
+	"hobbies.type": "sport",
+	"hobbies.name": "basketball",
+	"hobbies.dates": "June 3rd"
+}, {
+	"user_id": 1,
+	"email": "1@domain.com",
+	"hobbies.type": "sport",
+	"hobbies.name": "basketball",
+	"hobbies.dates": "July 4th"
+}, {
+	"user_id": 2,
+	"email": "2@domain.com"
+}, {
+	"user_id": 3,
+	"email": "3@domain.com",
+	"hobbies": null
+}]

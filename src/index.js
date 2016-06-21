@@ -11,7 +11,13 @@
 import flat from 'flat';
 import _ from 'lodash';
 
-const jsonSpread = (rootInput)=>{
+
+const jsonSpread = (rootInput,options)=>{
+  const _options = {
+    emptyValue : null
+  }
+  _.assign(_options,options);
+
   //helper functions
   const containsNestedArray = (value)=>{
     value = flat(value,{safe:true});
@@ -39,26 +45,32 @@ const jsonSpread = (rootInput)=>{
       //iterate through each property again
       _.forEach(data,(value,key)=>{
         if(_.isArray(value)){//if it is array, we test if it contains nested array or not
-          containsArray = true;
-          let propertyArray = [];
-          if(containsNestedArray(value)){
-            //if it contains nested array, we recurse down the tree
-            _.forEach(value,(propValue,propKey)=>{
-              const innerArray = spread(propValue); //this returns us an array of flattened objects
-              _.forEach(innerArray,(item,i)=>{
-                propertyArray.push(item);
-              });
+          if(value.length === 0){
+            data[key] = _options.emptyValue;
+            return;
+          }
+          else{
+            containsArray = true;
+            let propertyArray = [];
+            if(containsNestedArray(value)){
+              //if it contains nested array, we recurse down the tree
+              _.forEach(value,(propValue,propKey)=>{
+                const innerArray = spread(propValue); //this returns us an array of flattened objects
+                _.forEach(innerArray,(item,i)=>{
+                  propertyArray.push(item);
+                });
+              })
+            }
+            else{ //if it does not contain nested array, we use the array as it is.
+              propertyArray = value;
+            }
+            //concat the model object with the object inside the property array and produce a new dataset, this new data set will exist in retdata;
+            _.map(propertyArray,(propValue,index)=>{
+              const propObj = {};
+              propObj[key] = propValue;
+              retdata.push(_.assign({},model,propObj));
             })
           }
-          else{ //if it does not contain nested array, we use the array as it is.
-            propertyArray = value;
-          }
-          //concat the model object with the object inside the property array and produce a new dataset, this new data set will exist in retdata;
-          _.map(propertyArray,(propValue,index)=>{
-            const propObj = {};
-            propObj[key] = propValue;
-            retdata.push(_.assign({},model,propObj));
-          })
         }
       })
 
