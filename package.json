@@ -1,6 +1,6 @@
 {
   "name": "json-spread",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "simple javascript utility to spread nested json or javascript objects",
   "main": "index.js",
   "scripts": {
