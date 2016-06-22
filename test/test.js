@@ -75,3 +75,21 @@ describe('Output', function(){
     })
   })
 })
+
+describe('Options', function(){
+  describe("Remove Empty Arrays" , function(){
+    it("should remove empty array fields", function(){
+      assert.strictEqual(JSON.stringify(jsonSpread({a: 1, b:[]},{removeEmptyArray: true})),JSON.stringify([{a: 1}]));
+    })
+  })
+  describe("Empty Arrays Value" , function(){
+    it("should replace empty array fields with 'EMPTY'", function(){
+      assert.strictEqual(JSON.stringify(jsonSpread({a: 1, b:[]},{emptyValue: "EMPTY"})),JSON.stringify([{a: 1, b: "EMPTY"}]));
+    })
+  })
+  describe("Empty Arrays Value" , function(){
+    it("should use '*' as delimiters", function(){
+      assert.strictEqual(JSON.stringify(jsonSpread({a: { b: 1 }},{delimiter: "*"})),JSON.stringify([{"a*b": 1}]));
+    })
+  })
+})

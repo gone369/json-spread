@@ -13,7 +13,9 @@ var _ = require('lodash');
 
 module.exports = function(rootInput,options){
   var _options = {
-    emptyValue : null
+    delimiter : ".",
+    removeEmptyArray : false,
+    emptyValue       : null
   }
   _.assign(_options,options);
 
@@ -31,7 +33,7 @@ module.exports = function(rootInput,options){
   var spread = function(input){
     //recursive spread function
     var spreadhelper = function(data){
-      data = flat(data,{safe:true});
+      data = flat(data,{safe:true,delimiter:_options.delimiter});
       var retdata = [];
       var containsArray = false;
       //create a default model objects with non array properties
@@ -44,8 +46,13 @@ module.exports = function(rootInput,options){
       //iterate through each property again
       _.forEach(data,function(value,key){
         if(_.isArray(value)){//if it is array, we test if it contains nested array or not
-          if(value.length === 0){
-            data[key] = _options.emptyValue;
+          if(value.length === 0){ //if empty array
+            if(_options.removeEmptyArray){
+              delete data[key];
+            }
+            else{
+              data[key] = _options.emptyValue;
+            }
             return;
           }
           else{
@@ -92,7 +99,6 @@ module.exports = function(rootInput,options){
     }
     else{
       throw new TypeError(`json-spread input needs to be either a hash or an array. You inputted a typeof ${typeof input}`);
-      //throw `json-spread input needs to be either a hash or an array. You inputted a typeof ${typeof input}`;
     }
   }
 

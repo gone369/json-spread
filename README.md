@@ -5,7 +5,7 @@ Json-Spread
 
 A simple javascript library that flattens a json structured object and then creates duplicate objects off of each nested array elements.
 
-Great for converting multi leveled json to single level json that can be used to create csv,tsv,excel or other row column structured data.
+Great for converting nested, multi-leveled json to single level json that can be used to create csv,tsv,excel or other row column structured data.
 
 ## Installation
 ```bash
@@ -200,25 +200,56 @@ real life example
 
 ## Options
 
-you can define the value for empty arrays in options.  
-default is ``null``
+### Fields
+
+##### delimiter
+specify the delimiting value for nested objects.
 
 ```javascript
-var jsonSpread = require('json-spread');
-var data = { "a": [] };
+var data = { "a": { "b" : "foo"} };
 var options = {
-  emptyValue: null //default is null
+  delimiter : "*" //default is '.'
 }
 var output = jsonSpread(data,options);
 //output
 {
-  "a" : null
+  "a*b" : "foo"
+}
+```
+
+##### removeEmptyArray
+removes empty arrays
+
+```javascript
+var data = { "a": "value_a" , "b": []};
+var options = {
+  removeEmptyArray: true //default is false
+}
+var output = jsonSpread(data,options);
+//output
+{
+  "a" : "value_a"
+}
+```
+##### emptyValue
+you can define the value for empty arrays in options.  
+this is ignored if removeEmptyArray is ``true``
+
+```javascript
+var data = { "a": [] };
+var options = {
+  emptyValue: "EMPTY" //default is null
+}
+var output = jsonSpread(data,options);
+//output
+{
+  "a" : "EMPTY"
 }
 ```
 
 ## Contributing
 
-fork it, then do an ``npm install``. everything should be in there  
+Fork it, then do an ``npm install``. everything should be in there  
 I use mocha and chai to test. 
 ```bash
 npm test
@@ -227,7 +258,7 @@ write tests in ``/test`` folder. tests depends on compiled assets from build fol
 
 
 ## Dependencies
-this library current depends on [flat](https://www.npmjs.com/package/flat) and [lodash](https://www.npmjs.com/package/lodash)
+This library currently depends on [flat](https://www.npmjs.com/package/flat) and [lodash](https://www.npmjs.com/package/lodash)
 
 ## License
 MIT License
