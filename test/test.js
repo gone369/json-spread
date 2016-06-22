@@ -87,7 +87,7 @@ describe('Options', function(){
       assert.strictEqual(JSON.stringify(jsonSpread({a: 1, b:[]},{emptyValue: "EMPTY"})),JSON.stringify([{a: 1, b: "EMPTY"}]));
     })
   })
-  describe("Empty Arrays Value" , function(){
+  describe("Delimiter" , function(){
     it("should use '*' as delimiters", function(){
       assert.strictEqual(JSON.stringify(jsonSpread({a: { b: 1 }},{delimiter: "*"})),JSON.stringify([{"a*b": 1}]));
     })
