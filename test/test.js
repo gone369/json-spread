@@ -28,8 +28,8 @@ describe('Input', function(){
     expect(function(){jsonSpread(1)}).to.throw(TypeError);
   });
   it('should not throw Error when input is Object or Array' ,function () {
-    expect(function(){jsonSpread({})}).to.not.throw(Error);
-    expect(function(){jsonSpread([])}).to.not.throw(Error);
+    expect(function(){jsonSpread({})}).to.not.throw(TypeError);
+    expect(function(){jsonSpread([])}).to.not.throw(TypeError);
   });
 });
 
