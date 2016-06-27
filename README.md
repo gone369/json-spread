@@ -254,7 +254,7 @@ I use mocha and chai to test.
 ```bash
 npm test
 ```
-write tests in ``/test`` folder. tests depends on compiled assets from build folder
+write tests in ``/test`` folder. 
 
 
 ## Dependencies
