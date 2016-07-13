@@ -4,7 +4,9 @@
   "description": "simple javascript utility to spread nested json or javascript objects",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "debug": "mocha debug",
+    "dist": "gulp"
   },
   "repository": {
     "type": "git",
@@ -20,22 +22,30 @@
     "tsv"
   ],
   "author": "Xun Chen",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/gone369/json-spread/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gone369/json-spread/issues"
   },
   "homepage": "https://github.com/gone369/json-spread#readme",
   "dependencies": {
+    "deep-eql": "^0.1.3",
     "flat": "^2.0.0",
-    "lodash": "^4.13.1"
+    "flatmap": "0.0.3",
+    "foreach": "^2.0.5",
+    "is-plain-object": "^2.0.1",
+    "isarray": "^1.0.0",
+    "object-assign": "^4.1.0"
   },
   "devDependencies": {
+    "browserify": "^13.0.1",
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "mocha": "^2.5.3",
+    "pump": "^1.0.1",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

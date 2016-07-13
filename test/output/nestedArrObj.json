@@ -1,7 +1,11 @@
-[{
-	"a.index": 1
-}, {
-	"a.index": 2
-}, {
-	"a.index": 3
-}]
+[
+  {
+    "a.index": 1
+  },
+  {
+    "a.index": 2
+  },
+  {
+    "a.index": 3
+  }
+]
