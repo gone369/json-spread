@@ -11,29 +11,18 @@
 var flat = require('flat');
 var assign = require('object-assign');
 var forEach = require('foreach');
-var isArray = require('isArray');
 var isObject = require('is-plain-object');
 var flatmap = require('flatmap');
+var util = require('./util.js');
 
 module.exports = function(rootInput,options){
-  //helper functions
-  function containsNestedArray(value){
-    value = flat(value,{safe:true});
-    var test = false;
-    forEach(value,function(v,key){
-      if(isArray(v)){
-        test = true;
-      }
-    })
-    return test;
-  }
   function spread(input){
     //recursive spread function
     //detect types of input
     if(isObject(input)){
       return spreadHelper(input);
     }
-    else if(isArray(input)){
+    else if(Array.isArray(input)){
       return flatmap(input,function(item){
         return spreadHelper(item);
       })
@@ -48,13 +37,13 @@ module.exports = function(rootInput,options){
       //create a default model objects with non array properties
       var model = {};
       forEach(spreadInput,function(value,key){
-        if(!isArray(value)){
+        if(!Array.isArray(value)){
           model[key] = value;
         }
       })
       //iterate through each property again
       forEach(spreadInput,function(value,key){
-        if(isArray(value)){//if it is array, we test if it contains nested array or not
+        if(Array.isArray(value)){//if it is array, we test if it contains nested array or not
           if(value.length === 0){ //if empty array
             if(options.removeEmptyArray){
               delete spreadInput[key];
@@ -67,7 +56,7 @@ module.exports = function(rootInput,options){
           else{
             containsArray = true;
             var propertyArray = [];
-            if(containsNestedArray(value)){
+            if(util.containsNestedArray(value)){
               //if it contains nested array, we recurse down the tree
               forEach(value,function(propValue,propKey){
                 var innerArray = spread(propValue); //this returns us an array of flattened objects
@@ -98,6 +87,5 @@ module.exports = function(rootInput,options){
       }
     }
   }
-
   return spread(rootInput);
 }
