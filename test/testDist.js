@@ -16,13 +16,13 @@ var complexObjOutput = require('./output/complexObj');
 var complexArrOutput = require('./output/complexArr');
 var reallifeOutput = require('./output/reallife');
 
-var jsonSpread = require('../src/index.js');
+var jsonSpread = require('../index.js');
 
 var chai = require('chai');
 var assert = chai.assert;
 var expect = chai.expect;
 
-describe('Spread Source', function(){
+describe('Spread Distribution', function(){
   describe('Input', function(){
     it('should throw Error when input is not Object or Array' ,function () {
       expect(function(){jsonSpread("string")}).to.throw(TypeError);
@@ -95,4 +95,5 @@ describe('Spread Source', function(){
     })
   })
 })
+
 
