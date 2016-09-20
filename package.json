@@ -28,8 +28,6 @@
   },
   "homepage": "https://github.com/gone369/json-spread#readme",
   "dependencies": {
-    "deep-eql": "^0.1.3",
-    "deepmerge": "^0.2.10",
     "flat": "^2.0.0",
     "flatmap": "0.0.3",
     "foreach": "^2.0.5",
