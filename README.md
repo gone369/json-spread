@@ -249,16 +249,25 @@ var output = jsonSpread(data,options);
 
 ## Contributing
 
+###### installation
 Fork it, then do an ``npm install``. everything should be in there  
+
+###### building
+after writing in src folder, do:
+```bash
+npm run dist
+```
+to see if it builds
+
+###### tests
 I use mocha and chai to test. 
 ```bash
 npm test
 ```
 write tests in ``/test`` folder. 
 
-
 ## Dependencies
-This library currently depends on [flat](https://www.npmjs.com/package/flat) and [lodash](https://www.npmjs.com/package/lodash)
+This library currently depends on [flat](https://www.npmjs.com/package/flat)
 
 ## License
 MIT License

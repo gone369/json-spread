@@ -1,1 +1,1 @@
-module.exports = require('./dist/jsonSpread.js');
+module.exports = require('./dist/jsonSpread.min.js');
