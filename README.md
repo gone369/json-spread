@@ -1,6 +1,6 @@
 Json-Spread
 ===========
-![npm](https://img.shields.io/npm/v/json-spread.svg) ![license](https://img.shields.io/npm/l/json-spread.svg) ![github-issues](https://img.shields.io/github/issues/gone369/json-spread.svg) ![npm-downloads](https://img.shields.io/npm/dt/json-spread.svg)
+[![npm](https://img.shields.io/npm/v/json-spread.svg)](https://www.npmjs.com/package/json-spread) ![license](https://img.shields.io/npm/l/json-spread.svg) ![github-issues](https://img.shields.io/github/issues/gone369/json-spread.svg) ![npm-downloads](https://img.shields.io/npm/dt/json-spread.svg)
 
 
 ## Description
