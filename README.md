@@ -1,5 +1,7 @@
 Json-Spread
 ===========
+![npm](https://img.shields.io/npm/v/json-spread.svg) ![license](https://img.shields.io/npm/l/json-spread.svg) ![github-issues](https://img.shields.io/github/issues/gone369/json-spread.svg) ![npm-downloads](https://img.shields.io/npm/dt/json-spread.svg)
+
 
 ## Description
 
@@ -8,9 +10,13 @@ A simple javascript library that flattens a json structured object and then crea
 Great for converting nested, multi-leveled json to single level json that can be used to create csv,tsv,excel or other row column structured data.
 
 ## Installation
+
+#### Node
 ```bash
 npm install json-spread
 ```
+#### Browser
+include the `jsonSpread.min.js` file from the dist folder
 
 ## Usage
 
