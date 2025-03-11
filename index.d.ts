@@ -52,4 +52,4 @@ declare namespace jsonSpread {
   export const spread: typeof JsonSpread.spread;
 }
 
-export = jsonSpread; 
+export default jsonSpread; 
