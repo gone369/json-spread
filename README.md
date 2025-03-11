@@ -18,6 +18,22 @@ npm install json-spread
 #### Browser
 include the `jsonSpread.min.js` file from the dist folder
 
+## TypeScript Support
+
+This library includes TypeScript type definitions. You can import and use it in your TypeScript projects:
+
+```typescript
+import jsonSpread from 'json-spread';
+
+// Use generics to specify the return type
+interface MyData {
+  name: string;
+  value: number;
+}
+
+const result = jsonSpread<MyData>(myData, { delimiter: '-' });
+```
+
 ## Usage
 
 ```javascript

@@ -3,6 +3,7 @@
   "version": "0.3.2",
   "description": "simple javascript utility to spread nested json or javascript objects",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "mocha",
     "debug": "mocha debug",
