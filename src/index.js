@@ -8,24 +8,23 @@
  *
  *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-var spread = require('./spread.js');
-var assign = require('object-assign');
+import spread from './spread.js';
 
-var defaultOptions = {
-  delimiter        : ".",
-  removeEmptyArray : false,
-  emptyValue       : null,
-  safe             : true,
-  debug            : false
-}
+const defaultOptions = {
+  delimiter: '.',
+  removeEmptyArray: false,
+  emptyValue: null,
+  safe: true,
+  debug: false,
+};
 
-var jsonSpread = function(input,options){
-  return jsonSpread.spread(input,options);
-}
+const jsonSpread = function (input, options) {
+  return jsonSpread.spread(input, options);
+};
 
-jsonSpread.spread = function(input,options){
-  var opts = {};
-  assign(opts,defaultOptions,options);
-  return spread(input,opts);
-}
-module.exports = jsonSpread;
+jsonSpread.spread = function (input, options) {
+  const opts = { ...defaultOptions, ...options };
+  return spread(input, opts);
+};
+
+export default jsonSpread;

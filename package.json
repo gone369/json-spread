@@ -1,13 +1,29 @@
 {
   "name": "json-spread",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "simple javascript utility to spread nested json or javascript objects",
-  "main": "index.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "types": "index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./dist/jsonSpread.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "test": "mocha",
     "debug": "mocha debug",
-    "dist": "gulp"
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -29,22 +45,16 @@
   },
   "homepage": "https://github.com/gone369/json-spread#readme",
   "dependencies": {
-    "flat": "^2.0.0",
-    "flatmap": "0.0.3",
-    "foreach": "^2.0.5",
-    "is-plain-object": "^2.0.1",
-    "object-assign": "^4.1.0"
+    "flat": "^6.0.1",
+    "flatmap": "^0.0.3",
+    "is-plain-object": "^5.0.0",
+    "object-assign": "^4.1.1"
   },
   "devDependencies": {
-    "browserify": "^13.0.1",
     "chai": "^3.5.0",
-    "del": "^2.2.1",
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.4",
+    "del": "2.2.1",
     "mocha": "^2.5.3",
-    "pump": "^1.0.1",
-    "vinyl-source-stream": "^1.1.0"
+    "terser": "^5.39.0",
+    "vite": "^6.2.1"
   }
 }

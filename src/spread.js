@@ -1,4 +1,4 @@
-/*
+/*!
  *The MIT License (MIT)
  *Copyright (c) 2016 Xun Chen
  *
@@ -8,81 +8,86 @@
  *
  *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-var flat = require('flat');
-var assign = require('object-assign');
-var forEach = require('foreach');
-var isObject = require('is-plain-object');
-var flatmap = require('flatmap');
-var util = require('./util.js');
+import { flatten } from 'flat';
+import { isPlainObject } from 'is-plain-object';
+import flatmap from 'flatmap';
+import * as util from './util.js';
 
-module.exports = function(rootInput,options){
-  function spread(input){
+export default function (rootInput, options) {
+  function spread(input) {
     //recursive spread function
     //detect types of input
-    if(isObject(input)){
+    if (isPlainObject(input)) {
       return spreadHelper(input);
-    }
-    else if(Array.isArray(input)){
-      return flatmap(input,function(item){
+    } else if (Array.isArray(input)) {
+      return flatmap(input, function (item) {
         return spreadHelper(item);
-      })
+      });
+    } else {
+      throw new TypeError(
+        'json-spread input needs to be either a plain object or an array. You inputted a typeof' +
+          typeof input
+      );
     }
-    else{
-      throw new TypeError('json-spread input needs to be either a plain object or an array. You inputted a typeof' + typeof input);
-    }
-    function spreadHelper(spreadInput){
-      spreadInput = flat(spreadInput,{safe:true,delimiter:options.delimiter});
-      var output = [];
-      var containsArray = false;
+    function spreadHelper(spreadInput) {
+      if (Object.keys(spreadInput).length === 0) {
+        return [{}]; // Return early for empty objects
+      }
+      spreadInput = flatten(spreadInput, {
+        safe: true,
+        delimiter: options.delimiter,
+      });
+      let output = [];
+      let containsArray = false;
       //create a default model objects with non array properties
-      var model = {};
-      forEach(spreadInput,function(value,key){
-        if(!Array.isArray(value)){
+      const model = {};
+      Object.entries(spreadInput).forEach(([key, value]) => {
+        if (!Array.isArray(value)) {
           model[key] = value;
         }
-      })
+      });
       //iterate through each property again
-      forEach(spreadInput,function(value,key){
-        if(Array.isArray(value)){//if it is array, we test if it contains nested array or not
-          if(value.length === 0){ //if empty array
-            if(options.removeEmptyArray){
+      Object.entries(spreadInput).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          //if it is array, we test if it contains nested array or not
+          if (value.length === 0) {
+            //if empty array
+            if (options.removeEmptyArray) {
               delete spreadInput[key];
-            }
-            else{
+            } else {
               spreadInput[key] = options.emptyValue;
             }
             return;
-          }
-          else{
+          } else {
             containsArray = true;
-            var propertyArray = [];
-            if(util.containsNestedArray(value)){
+            let propertyArray = [];
+            if (util.containsNestedArray(value)) {
               //if it contains nested array, we recurse down the tree
-              forEach(value,function(propValue,propKey){
-                var innerArray = spread(propValue); //this returns us an array of flattened objects
-                forEach(innerArray,function(item,i){
+              value.forEach((propValue) => {
+                const innerArray = spread(propValue); //this returns us an array of flattened objects
+                innerArray.forEach((item) => {
                   propertyArray.push(item);
                 });
-              })
-            }
-            else{ //if it does not contain nested array, we use the array as it is.
+              });
+            } else {
+              //if it does not contain nested array, we use the array as it is.
               propertyArray = value;
             }
             //concat the model object with the object inside the property array and produce a new dataset, this new data set will exist in output;
-            forEach(propertyArray,function(propValue,index){
-              var propObj = {};
-              propObj[key] = propValue;
-              output.push(assign({},model,propObj));
-            })
+            const baseModel = { ...model };
+            propertyArray.forEach((propValue) => {
+              const resultObj = { ...baseModel };
+              resultObj[key] = propValue;
+              output.push(resultObj);
+            });
           }
         }
-      })
+      });
 
-      if(containsArray){
+      if (containsArray) {
         output = spread(output);
         return output;
-      }
-      else{
+      } else {
         return [spreadInput];
       }
     }

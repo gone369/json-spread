@@ -9,6 +9,15 @@ A simple javascript library that flattens a json structured object and then crea
 
 Great for converting nested, multi-leveled json to single level json that can be used to create csv,tsv,excel or other row column structured data.
 
+
+## Version 1.0.0
+- Added TS Support
+- ESM Support
+- CJS Backwards Compatibility 
+- UMD Support
+
+you can still use vanilla JS version of this package. Just lock the version at `v0.3.2`
+
 ## Installation
 
 #### Node
@@ -16,9 +25,9 @@ Great for converting nested, multi-leveled json to single level json that can be
 npm install json-spread
 ```
 #### Browser
-include the `jsonSpread.min.js` file from the dist folder
+include the `jsonSpread.js` file from the dist folder
 
-## TypeScript Support
+## [NEW!] TypeScript Support (v1.0.0)
 
 This library includes TypeScript type definitions. You can import and use it in your TypeScript projects:
 
@@ -37,8 +46,8 @@ const result = jsonSpread<MyData>(myData, { delimiter: '-' });
 ## Usage
 
 ```javascript
-var jsonSpread = require('json-spread');
-var output = jsonSpread({
+const jsonSpread = require('json-spread');
+const output = jsonSpread({
   "a": [
     {
       "index": 1
@@ -228,11 +237,11 @@ real life example
 specify the delimiting value for nested objects.
 
 ```javascript
-var data = { "a": { "b" : "foo"} };
-var options = {
+const data = { "a": { "b" : "foo"} };
+const options = {
   delimiter : "*" //default is '.'
 }
-var output = jsonSpread(data,options);
+const output = jsonSpread(data,options);
 //output
 {
   "a*b" : "foo"
@@ -243,11 +252,11 @@ var output = jsonSpread(data,options);
 removes empty arrays
 
 ```javascript
-var data = { "a": "value_a" , "b": []};
-var options = {
+const data = { "a": "value_a" , "b": []};
+const options = {
   removeEmptyArray: true //default is false
 }
-var output = jsonSpread(data,options);
+const output = jsonSpread(data,options);
 //output
 {
   "a" : "value_a"
@@ -258,11 +267,11 @@ you can define the value for empty arrays in options.
 this is ignored if removeEmptyArray is ``true``
 
 ```javascript
-var data = { "a": [] };
-var options = {
+const data = { "a": [] };
+const options = {
   emptyValue: "EMPTY" //default is null
 }
-var output = jsonSpread(data,options);
+const output = jsonSpread(data,options);
 //output
 {
   "a" : "EMPTY"
@@ -277,7 +286,7 @@ Fork it, then do an ``npm install``. everything should be in there
 ###### building
 after writing in src folder, do:
 ```bash
-npm run dist
+npm run build
 ```
 to see if it builds
 
