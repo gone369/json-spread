@@ -17,9 +17,6 @@ importers:
       is-plain-object:
         specifier: ^5.0.0
         version: 5.0.0
-      object-assign:
-        specifier: ^4.1.1
-        version: 4.1.1
     devDependencies:
       chai:
         specifier: ^3.5.0
@@ -30,9 +27,6 @@ importers:
       mocha:
         specifier: ^2.5.3
         version: 2.5.3
-      terser:
-        specifier: ^5.39.0
-        version: 5.39.0
       vite:
         specifier: ^6.2.1
         version: 6.2.1(terser@5.39.0)
@@ -689,22 +683,28 @@ snapshots:
       '@jridgewell/set-array': 1.2.1
       '@jridgewell/sourcemap-codec': 1.5.0
       '@jridgewell/trace-mapping': 0.3.25
+    optional: true
 
-  '@jridgewell/resolve-uri@3.1.2': {}
+  '@jridgewell/resolve-uri@3.1.2':
+    optional: true
 
-  '@jridgewell/set-array@1.2.1': {}
+  '@jridgewell/set-array@1.2.1':
+    optional: true
 
   '@jridgewell/source-map@0.3.6':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
+    optional: true
 
-  '@jridgewell/sourcemap-codec@1.5.0': {}
+  '@jridgewell/sourcemap-codec@1.5.0':
+    optional: true
 
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+    optional: true
 
   '@rollup/rollup-android-arm-eabi@4.35.0':
     optional: true
@@ -765,7 +765,8 @@ snapshots:
 
   '@types/estree@1.0.6': {}
 
-  acorn@8.14.1: {}
+  acorn@8.14.1:
+    optional: true
 
   array-union@1.0.2:
     dependencies:
@@ -784,7 +785,8 @@ snapshots:
       balanced-match: 1.0.2
       concat-map: 0.0.1
 
-  buffer-from@1.1.2: {}
+  buffer-from@1.1.2:
+    optional: true
 
   chai@3.5.0:
     dependencies:
@@ -794,7 +796,8 @@ snapshots:
 
   commander@0.6.1: {}
 
-  commander@2.20.3: {}
+  commander@2.20.3:
+    optional: true
 
   commander@2.3.0: {}
 
@@ -1009,8 +1012,10 @@ snapshots:
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
+    optional: true
 
-  source-map@0.6.1: {}
+  source-map@0.6.1:
+    optional: true
 
   supports-color@1.2.0: {}
 
@@ -1020,6 +1025,7 @@ snapshots:
       acorn: 8.14.1
       commander: 2.20.3
       source-map-support: 0.5.21
+    optional: true
 
   to-iso-string@0.0.2: {}
 

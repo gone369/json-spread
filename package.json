@@ -47,14 +47,12 @@
   "dependencies": {
     "flat": "^6.0.1",
     "flatmap": "^0.0.3",
-    "is-plain-object": "^5.0.0",
-    "object-assign": "^4.1.1"
+    "is-plain-object": "^5.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "del": "2.2.1",
     "mocha": "^2.5.3",
-    "terser": "^5.39.0",
     "vite": "^6.2.1"
   }
 }
