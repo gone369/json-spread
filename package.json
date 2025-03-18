@@ -2,7 +2,7 @@
   "name": "json-spread",
   "version": "0.3.2",
   "description": "simple javascript utility to spread nested json or javascript objects",
-  "main": "index.js",
+  "main": "dist/jsonSpread.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "mocha",

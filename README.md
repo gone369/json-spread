@@ -20,9 +20,13 @@ include the `jsonSpread.min.js` file from the dist folder
 
 ## TypeScript Support
 
-This library includes TypeScript type definitions. You can import and use it in your TypeScript projects:
+This library includes TypeScript type definitions. You can use it in your TypeScript projects:
 
 ```typescript
+// CommonJS style
+const jsonSpread = require('json-spread');
+
+// OR ES Module style
 import jsonSpread from 'json-spread';
 
 // Use generics to specify the return type

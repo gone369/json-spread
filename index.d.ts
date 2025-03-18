@@ -52,4 +52,7 @@ declare namespace jsonSpread {
   export const spread: typeof JsonSpread.spread;
 }
 
-export = jsonSpread; 
+// Support for CommonJS exports
+export = jsonSpread;
+// Support for TypeScript usage in global environment
+export as namespace jsonSpread; 
