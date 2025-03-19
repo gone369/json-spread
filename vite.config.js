@@ -12,9 +12,9 @@ export default defineConfig({
         const entryName = 'jsonSpread';
         // You can customize the file name based on the format and entry name
         if (format === 'cjs') {
-          return `${entryName}.js`;
+          return `${entryName}.cjs`;
         } else if (format === 'es') {
-          return `${entryName}.esm.js`;
+          return `${entryName}.js`;
         } else {
           // Fall back to a default naming convention if needed
           return `${entryName}.${format}.js`;

@@ -1,3 +1,4 @@
+"use strict";
 function isBuffer(obj) {
   return obj && obj.constructor && typeof obj.constructor.isBuffer === "function" && obj.constructor.isBuffer(obj);
 }
@@ -180,6 +181,4 @@ jsonSpread.spread = function(input, options) {
   const opts = { ...defaultOptions, ...options };
   return spread(input, opts);
 };
-export {
-  jsonSpread as default
-};
+module.exports = jsonSpread;

@@ -1,21 +1,20 @@
 {
   "name": "json-spread",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "simple javascript utility to spread nested json or javascript objects",
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "main": "dist/jsonSpread.js",
+  "module": "dist/jsonSpread.js",
   "types": "index.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./src/index.js",
-      "require": "./dist/jsonSpread.js"
+      "types": "./index.d.ts",
+      "import": "./dist/jsonSpread.js",
+      "require": "./dist/jsonSpread.cjs"
     }
   },
   "files": [
     "dist",
-    "src",
     "index.d.ts",
     "LICENSE",
     "README.md"
